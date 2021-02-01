@@ -22,4 +22,4 @@ app.use((req, res) => {
   });
 });
 
-app.listen(process.env.PORT, () => console.log('http://localhost:80/'));
+app.listen(process.env.NODE_PORT, () => console.log(`http://localhost:${process.env.NODE_PORT}/`));
