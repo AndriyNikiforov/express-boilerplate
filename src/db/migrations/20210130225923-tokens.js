@@ -18,7 +18,9 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      type: {},
+      type: {
+        type: Sequelize.DataTypes.STRING,
+      },
       is_revoked: {
         type: Sequelize.DataTypes.BOOLEAN,
         defaultValue: false,

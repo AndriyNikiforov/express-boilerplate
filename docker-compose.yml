@@ -7,7 +7,8 @@ services:
       dockerfile: docker/nodejs/Dockerfile
     volumes:
       - ./:/app
-    depends_on: postgres
+    depends_on:
+      - postgres
     ports:
       - "3000:3000"
 

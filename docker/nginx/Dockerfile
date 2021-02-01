@@ -6,4 +6,4 @@ RUN apk update && apk add --update --no-cache \
     nano \
     bash
 
-COPY ./nginx_conf/nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./docker/nginx/nginx_conf/nginx.conf /etc/nginx/conf.d/default.conf
