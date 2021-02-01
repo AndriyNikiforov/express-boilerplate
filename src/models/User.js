@@ -8,7 +8,10 @@ User.init({
   email: DataTypes.STRING,
   bio: DataTypes.TEXT,
   tags: DataTypes.TSVECTOR,
-  team_id: DataTypes.INTEGER,
+  team_id: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   additional_info: DataTypes.JSON,
 }, {
   sequelize: Sequelize,

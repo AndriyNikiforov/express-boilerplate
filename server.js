@@ -6,6 +6,8 @@ const app = express();
 
 dotenv.config();
 
+const { NODE_PORT } = process.env;
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
@@ -22,4 +24,4 @@ app.use((req, res) => {
   });
 });
 
-app.listen(process.env.NODE_PORT, () => console.log(`http://localhost:${process.env.NODE_PORT}/`));
+app.listen(NODE_PORT, () => console.log(`http://localhost:${NODE_PORT}/`));

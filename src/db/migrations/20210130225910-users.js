@@ -11,7 +11,10 @@ module.exports = {
       email: Sequelize.DataTypes.STRING,
       bio: Sequelize.DataTypes.TEXT,
       tags: Sequelize.DataTypes.TSVECTOR,
-      team_id: Sequelize.DataTypes.INTEGER,
+      team_id: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: true,
+      },
       additional_info: Sequelize.DataTypes.JSON,
     });
   },

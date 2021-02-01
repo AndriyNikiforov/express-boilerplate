@@ -9,6 +9,18 @@ module.exports = {
       max_memory_restart: '1G',
       ignore_watch: [
         'node_modules',
+        'persist',
+        'source',
+        'source/**/*',
+        'public',
+        'tmp',
+        'storage',
+        '.git',
+        '.idea',
+        '.history',
+        'public/js',
+        'public/qr',
+        'public/uploads',
         'docker',
       ],
       env: {
