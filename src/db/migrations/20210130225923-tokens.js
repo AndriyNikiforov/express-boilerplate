@@ -2,15 +2,15 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('tokens', {
       id: {
-        type: Sequelize.DataTypes.INTEGER.UNSIGNED,
+        type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
       user_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
-          table: 'users',
-          field: 'id',
+          model: 'users',
+          key: 'id',
         },
       },
       token: {
@@ -26,6 +26,8 @@ module.exports = {
         defaultValue: false,
         allowNull: false,
       },
+      created_at: Sequelize.DataTypes.DATE,
+      updated_at: Sequelize.DataTypes.DATE,
     }).then(() => queryInterface.addIndex('tokens', ['token']));
   },
 

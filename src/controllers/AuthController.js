@@ -11,12 +11,11 @@ class AuthController {
     const { body: data } = request;
     const result = SignUpValidator(data);
 
-    if (!result.success) {
+    if (!result.email) {
       return response.send(result);
     }
 
-    result.password = bcrypt.hash(result.password, 10)
-      .then((password) => password);
+    result.password = bcrypt.hashSync(result.password, 10);
 
     const user = await User.create(result);
     const jwt = jsonwebtoken.sign({
@@ -92,4 +91,4 @@ class AuthController {
   }
 }
 
-module.exports = AuthController;
+module.exports = new AuthController();

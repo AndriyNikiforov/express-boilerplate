@@ -22,6 +22,9 @@ Token.init({
 }, {
   sequelize: Sequelize,
   modelName: 'Token',
+  tableName: 'tokens',
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 });
 
 module.exports = Token;

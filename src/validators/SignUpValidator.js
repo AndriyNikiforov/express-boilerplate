@@ -6,7 +6,6 @@ const validator = (data) => {
     username: Joi.string(),
     password: Joi.string().min(6),
     bio: Joi.string(),
-    tags: Joi.array(),
   });
 
   const { error, value } = schema.validate(data);
@@ -14,7 +13,7 @@ const validator = (data) => {
   if (error) {
     return {
       success: false,
-      message: error.details.message,
+      message: error.details,
     };
   }
 

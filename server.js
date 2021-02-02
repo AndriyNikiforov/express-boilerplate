@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+const Routers = require('./src/routers');
+
 const app = express();
 
 dotenv.config();
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
+app.use('/api/', Routers);
 
 app.get('/', (req, res) => res.json({
   message: 'Hello world',
@@ -25,3 +28,5 @@ app.use((req, res) => {
 });
 
 app.listen(NODE_PORT, () => console.log(`http://localhost:${NODE_PORT}/`));
+
+module.exports = app;

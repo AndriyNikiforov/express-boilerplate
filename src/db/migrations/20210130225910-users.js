@@ -16,6 +16,8 @@ module.exports = {
         allowNull: true,
       },
       additional_info: Sequelize.DataTypes.JSON,
+      created_at: Sequelize.DataTypes.DATE,
+      updated_at: Sequelize.DataTypes.DATE,
     });
   },
   down: async (queryInterface) => {
