@@ -42,7 +42,7 @@ class AuthController {
     const { body: data } = request;
     const result = SignInValidator(data);
 
-    if (!result.success) {
+    if (!result.email) {
       return response.send(result);
     }
 
@@ -51,9 +51,7 @@ class AuthController {
         email: result.email,
       },
     });
-
-    const passwordCheck = bcrypt.compare(result.password, user.password)
-      .then((checked) => checked);
+    const passwordCheck = bcrypt.compareSync(result.password, user.password);
 
     if (!passwordCheck) {
       return response.send({
@@ -70,10 +68,10 @@ class AuthController {
       expiresIn: process.env.ACCESS_TOKEN_LIFE,
     });
 
-    return {
+    return response.send({
       success: true,
       jwt_token: jwt,
-    };
+    });
   }
 
   async logout(request, response) {
