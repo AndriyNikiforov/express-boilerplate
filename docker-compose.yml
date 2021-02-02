@@ -28,8 +28,8 @@ services:
     container_name: postgres
     image: postgres:9.6
     environment:
-      - "POSTGRES_DB=emp"
-      - "POSTGRES_USER=root"
-      - "POSTGRES_PASSWORD=root"
+      - "POSTGRES_DB=dev"
+      - "POSTGRES_USER=dev"
+      - "POSTGRES_PASSWORD=dev"
     ports:
       - "54326:5432"

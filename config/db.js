@@ -6,8 +6,11 @@ const config = require('./config.json');
 dotenv.config();
 const { NODE_ENV } = process.env;
 
-const sequelize = new Sequelize(config[NODE_ENV].database,
-  config[NODE_ENV].username, config[NODE_ENV].password, {
+const sequelize = new Sequelize(
+  config[NODE_ENV].database,
+  config[NODE_ENV].username,
+  config[NODE_ENV].password,
+  {
     dialect: 'postgres',
     host: 'postgres',
     port: 5432,
@@ -17,7 +20,8 @@ const sequelize = new Sequelize(config[NODE_ENV].database,
       acquire: 30000,
       idle: 10000,
     },
-  });
+  },
+);
 
 const checkDb = async () => {
   try {

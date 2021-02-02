@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "emp",
+    "username": "dev",
+    "password": "dev",
+    "database": "dev",
     "host": "postgres",
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": "root",
+    "username": "dev",
+    "password": "dev",
     "database": "test",
     "host": "postgres",
     "dialect": "postgres"
@@ -16,7 +16,7 @@
   "production": {
     "username": "dev",
     "password": "dev",
-    "database": "dev",
+    "database": "prod",
     "host": "postgres",
     "dialect": "postgres"
   }
