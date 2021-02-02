@@ -5,10 +5,10 @@ const dotenv = require('dotenv');
 const Routers = require('./src/routers');
 
 const app = express();
+let { NODE_PORT, NODE_ENV } = process.env;
+NODE_PORT = (NODE_ENV === 'test') ? 3007 : NODE_PORT;
 
 dotenv.config();
-
-const { NODE_PORT } = process.env;
 
 app.use(cors());
 app.use(express.json());
