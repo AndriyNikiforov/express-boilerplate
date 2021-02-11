@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const swaggerUi = require('swagger-ui-express');
 
 const Routers = require('./src/routers');
+const swaggerSpec = require('./config/swagger');
 
 const app = express();
 let { NODE_PORT, NODE_ENV } = process.env;
@@ -15,8 +17,10 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true,
 }));
-app.use('/api/', Routers);
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use('/api/', Routers);
 app.get('/', (req, res) => res.json({
   message: 'Hello world',
 }));
