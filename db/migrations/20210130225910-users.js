@@ -9,7 +9,6 @@ module.exports = {
       username: Sequelize.DataTypes.STRING,
       password: Sequelize.DataTypes.STRING,
       email: Sequelize.DataTypes.STRING,
-      additional_info: Sequelize.DataTypes.JSON,
       created_at: Sequelize.DataTypes.DATE,
       updated_at: Sequelize.DataTypes.DATE,
     });
