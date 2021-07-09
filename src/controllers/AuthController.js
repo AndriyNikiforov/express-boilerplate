@@ -1,10 +1,10 @@
 /* eslint-disable class-methods-use-this */
-const jsonwebtoken = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const jsonwebtoken = require('jsonwebtoken');
 
-const { User, Token } = require('../models');
 const SignUpValidator = require('../validators/SignUpValidator');
 const SignInValidator = require('../validators/SignInValidator');
+const { User, Token } = require('../models');
 
 class AuthController {
   async signUp(request, response) {
@@ -44,20 +44,6 @@ class AuthController {
 
     if (!result.email) {
       return response.send(result);
-    }
-
-    const user = await User.findOne({
-      where: {
-        email: result.email,
-      },
-    });
-    const passwordCheck = bcrypt.compareSync(result.password, user.password);
-
-    if (!passwordCheck) {
-      return response.send({
-        success: false,
-        message: 'Wrong password.',
-      });
     }
 
     const jwt = jsonwebtoken.sign({
