@@ -4,7 +4,7 @@ const { log } = require('console');
 
 const Routers = require('./src/routers');
 const swaggerSpec = require('./config/swagger');
-const { App, passport } = require('./config/env');
+const App = require('./config/env');
 
 const { NODE_ENV } = process.env;
 let { NODE_PORT } = process.env;
@@ -15,7 +15,7 @@ dotenv.config();
 App.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 App.use('/api/', Routers);
-App.get('/', passport.authenticate(), (req, res) => res.json({
+App.get('/', (req, res) => res.json({
   message: 'Hello world',
 }));
 
